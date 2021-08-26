@@ -6,26 +6,26 @@ async function getData () {
     try {
         const response = await fetch(url);
 
-        const results = await response.json();
+        const data = await response.json();
     
-        console.log(results.results);
+        console.log(data.results);
     
         gamesContainer.innerHTML = "";
     
-        for (let i = 0; i < results.results.length; i++) {
-            console.log(results.results[i]);
+        for (let i = 0; i < data.results.length; i++) {
+            console.log(data.results[i]);
     
             if (i === 8) {
                 break;
             }
     
             gamesContainer.innerHTML += `<div class="data"> 
-                                            <h2> ${results.results[i].name}</h2>
-                                            <b> Rating: ${results.results[i].rating}</b>
-                                            <p> Tags: ${results.results[i].tags.length}</p>
+                                            <h2> ${data.results[i].name}</h2>
+                                            <b> Rating: ${data.results[i].rating}</b>
+                                            <p> Tags: ${data.results[i].tags.length}</p>
                                         </div>`;
-    
         }
+        
     }
 
     catch (error) {
